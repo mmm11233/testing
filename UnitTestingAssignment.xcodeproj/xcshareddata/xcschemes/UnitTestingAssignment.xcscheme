@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1500"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5AF683BD2B1B70BC002E7966"
+               BuildableName = "UnitTestingAssignment.app"
+               BlueprintName = "UnitTestingAssignment"
+               ReferencedContainer = "container:UnitTestingAssignment.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      shouldAutocreateTestPlan = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "39623D0F2B1C7BB2007A2447"
+               BuildableName = "CartViewModelTest.xctest"
+               BlueprintName = "CartViewModelTest"
+               ReferencedContainer = "container:UnitTestingAssignment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "39623D1E2B1C8346007A2447"
+               BuildableName = "response         mockSession.data = mockData         let networkManager = NetworkManager(session: mockSession)          networkManager.fetchProducts { result in             switch result {             case .success(let products):                 XCTAssertNotNil(products)                 expectation.fulf"
+               BlueprintName = "import XCTest @testable import YourAppName // Replace &apos;YourAppName&apos; with the actual name of your app/module  class NetworkManagerTests: XCTestCase {      func testFetchProductsSuccess() {         let expectation = XCTestExpectation(description: &quot;Fetch products from API successfully&quot;)                  // Assuming the URL points to a test server or mock server to avoid network dependency         let testProductsURL = URL(string: &quot;https://yourtestserver.com/products&quot;)!                  let mockSession = MockURLSession()         let mockData = /* Mock your response data here */          // Setting up a mock URL session to simulate network request/response         mockSession.data = mockData         let networkManager = NetworkManager(session: mockSession)          networkManager.fetchProducts { result in             switch result {             case .success(let products):                 XCTAssertNotNil(products)                 expectation.fulfill()             case .failure(_):                 XCTFail(&quot;Fetching products failed&quot;)             }         }                  wait(for: [expectation], timeout: 5.0) // Adjust the timeout value as needed     }          func testFetchProductsFailure() {         let expectation = XCTestExpectation(description: &quot;Fetch products from API failed&quot;)                  // Assuming the URL points to a test server or mock server to avoid network dependency         let testProductsURL = URL(string: &quot;https://yourtestserver.com/products&quot;)!                  let mockSession = MockURLSession()         // Simulate an error scenario by setting data as nil         mockSession.data = nil         let networkManager = NetworkManager(session: mockSession)          networkManager.fetchProducts { result in             switch result {             case .success(_):                 XCTFail(&quot;Fetching products should have failed&quot;)             case .failure(let error):                 XCTAssertNotNil(error)                 expectation.fulfill()             }         }                  wait(for: [expectation], timeout: 5.0) // Adjust the timeout value as needed     } }  // Mock URLSession for testing class MockURLSession: URLSessionProtocol {     var data: Data?     var response: URLResponse?     var error: Error?          func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -&gt; Void) -&gt; URLSessionDataTask {         let task = MockURLSessionDataTask()         task.completionHandler = { [weak self] in             completionHandler(self?.data, self?.response, self?.error)         }         return task     } }  // Mock URLSessionDataTask for testing class MockURLSessionDataTask: URLSessionDataTask {     var completionHandler: (() -&gt; Void)?          override func resume() {         completionHandler?()     } }  // Protocol for URLSession to enable mocking protocol URLSessionProtocol {     func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -&gt; Void) -&gt; URLSessionDataTask }  // Extension to conform URLSession to URLSessionProtocol for easy mocking extension URLSession: URLSessionProtocol {} NetworkManagerTest"
+               ReferencedContainer = "container:UnitTestingAssignment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "39623D292B1C836F007A2447"
+               BuildableName = "NetworkingTest.xctest"
+               BlueprintName = "NetworkingTest"
+               ReferencedContainer = "container:UnitTestingAssignment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "39623D362B1D235B007A2447"
+               BuildableName = "NetworkingManageTest.xctest"
+               BlueprintName = "NetworkingManageTest"
+               ReferencedContainer = "container:UnitTestingAssignment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "39623D432B1D26CC007A2447"
+               BuildableName = "NetworkManagerTest.xctest"
+               BlueprintName = "NetworkManagerTest"
+               ReferencedContainer = "container:UnitTestingAssignment.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5AF683BD2B1B70BC002E7966"
+            BuildableName = "UnitTestingAssignment.app"
+            BlueprintName = "UnitTestingAssignment"
+            ReferencedContainer = "container:UnitTestingAssignment.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5AF683BD2B1B70BC002E7966"
+            BuildableName = "UnitTestingAssignment.app"
+            BlueprintName = "UnitTestingAssignment"
+            ReferencedContainer = "container:UnitTestingAssignment.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
